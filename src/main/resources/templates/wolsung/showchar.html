@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="author" content="Bartłomiej Szczęśniak">
+    <meta name="robots" content="index,follow">
+
+
+    <title>Wolsung - Skarbiec postaci</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon/favicon.ico}" />
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" th:href="@{/images/favicon/apple-touch-icon.png}">
+
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="css/plugin.css">
+
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+
+
+    <!-- HTML5 shiv and Respond.js support IE8 or Older for HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+
+
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="rounder"></div>
+</div>
+<!-- Preloader End -->
+
+
+<div id="main">
+    <div class="container">
+        <div class="row">
+
+
+            <!-- About Me (Left Sidebar) Start -->
+            <div class="col-md-3">
+                <div class="about-fixed">
+
+
+                    <th:block th:replace="wolsung/menubottom :: menuleft">
+                </div>
+            </div>
+            <!-- About Me (Left Sidebar) End -->
+
+
+            <!-- Blog Post (Right Sidebar) Start -->
+            <div class="col-md-9">
+                <div class="col-md-12 page-body">
+                    <div class="row">
+
+                        <div class="col-md-12 content-page">
+
+
+                            <!-- Blog Post Start -->
+                            <div class="col-md-12 blog-post">
+                                <div class="post-title">
+                                    <h1>Wolsung: Magia Wieku Pary</h1>
+                                </div>
+
+
+                                <p>
+                                <form th:action="@{/wolsung/create}" th:method="post">
+                                </p>
+
+                                <p>
+                                    <label>Twórca postaci</label>
+                                    <input type="text" readonly th:value="${wolsung.owner}">
+                                </p>
+
+                                <p>
+                                    <label>Imię i nazwisko</label>
+                                    <input type="text" readonly th:value="${wolsung.name}">
+                                </p>
+
+                                <table>
+                                    <tr>
+                                        <td><label>Rasa</label></td>
+                                        <td><label>Narodowość</label></td>
+                                        <td><label>Archetyp</label></td>
+                                        <td><label>Profesja</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" readonly th:value="${wolsung.race}"></td>
+                                        <td><input type="text" readonly th:value="${wolsung.nationality}"></td>
+                                        <td><input type="text" readonly th:value="${wolsung.archetype}"></td>
+                                        <td><input type="text" readonly th:value="${wolsung.profession}"></td>
+                                    </tr>
+                                </table>
+
+
+                                <table>
+                                    <tr>
+                                        <td><label>Atrubut</label></td>
+                                        <td><label>Wartość</label></td>
+                                        <td></td>
+                                        <td><label>Umiejętność</label></td>
+                                        <td><label>Wartość</label></td>
+                                        <td><label>Specjalizacje</label></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Krzepa</td>
+                                        <td th:text="${wolsung.brawn}"></td>
+
+                                        </td>
+                                        <td>&emsp;</td>
+                                        <td>Analiza (Prz)</td>
+                                        <td th:text="${wolsung.analysis}"></td>
+                                        <td th:text="${wolsung.analysisSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Zręczność</td>
+                                        <td th:text="${wolsung.dexterity}"></td>
+                                        </td>
+                                        <td>&emsp;</td>
+                                        <td>Blef (Cha)</td>
+                                        <td th:text="${wolsung.bluff}"></td>
+                                        <td th:text="${wolsung.bluffSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Przenikliwość</td>
+                                        <td th:text="${wolsung.sagacity}"></td>
+                                        <td>&emsp;</td>
+                                        <td>Ekspresja (Cha)</td>
+                                        <td th:text="${wolsung.expression}"></td>
+                                        <td th:text="${wolsung.expressionSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Opanowanie</td>
+                                        <td th:text="${wolsung.calmness}"></td>
+                                        <td>&emsp;</td>
+                                        <td>Empatia (Prz)</td>
+                                        <td th:text="${wolsung.empathy}"></td>
+                                        <td th:text="${wolsung.empathySpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                    <tr>
+
+                                        <td>Charyzma</td>
+                                        <td th:text="${wolsung.calmness}"></td>
+                                        <td>&emsp;</td>
+                                        <td>Odwaga (Op)</td>
+                                        <td th:text="${wolsung.courage}"></td>
+                                        <td th:text="${wolsung.courageSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Okultyzm (Prz)</td>
+                                        <td th:text="${wolsung.occultism}"></td>
+                                        <td th:text="${wolsung.occultismSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Perswazja (Cha)</td>
+                                        <td th:text="${wolsung.persuade}"></td>
+                                        <td th:text="${wolsung.persuadeSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Półświatek (Prz)</td>
+                                        <td th:text="${wolsung.underworld}"></td>
+                                        <td th:text="${wolsung.underworldSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Pojazdy (Zr)</td>
+                                        <td th:text="${wolsung.vehicle}"></td>
+                                        <td th:text="${wolsung.vehicleSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Przyroda (Prz)</td>
+                                        <td th:text="${wolsung.nature}"></td>
+                                        <td th:text="${wolsung.natureSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Spostrzegawczość (Prz)</td>
+                                        <td th:text="${wolsung.spot}"></td>
+                                        <td th:text="${wolsung.spotSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Strzelanie (Zr)</td>
+                                        <td th:text="${wolsung.shooting}"></td>
+                                        <td th:text="${wolsung.shootingSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Technika (Prz)</td>
+                                        <td th:text="${wolsung.technology}"></td>
+                                        <td th:text="${wolsung.technologySpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Ukrywanie (Zr)</td>
+                                        <td th:text="${wolsung.hide}"></td>
+                                        <td th:text="${wolsung.hideSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Walka (Krz)</td>
+                                        <td th:text="${wolsung.fighting}"></td>
+                                        <td th:text="${wolsung.fightingSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Wiedza akademicka (Prz)</td>
+                                        <td th:text="${wolsung.knowledge}"></td>
+                                        <td th:text="${wolsung.knowledgeSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Wysportowanie (Krz)</td>
+                                        <td th:text="${wolsung.athletics}"></td>
+                                        <td th:text="${wolsung.athleticsSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Zastraszanie (Cha)</td>
+                                        <td th:text="${wolsung.intimidation}"></td>
+                                        <td th:text="${wolsung.intimidationSpecialization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+
+                                        <td>Złodziejstwo (Zr)</td>
+                                        <td th:text="${wolsung.thievery}"></td>
+                                        <td th:text="${wolsung.thieverySpecialization}"></td>
+                                    </tr>
+                                </table>
+
+                                </p>
+                                <p th:if="${wolsung.raceAbilities != ''}"><label>Zdolności (rasa):</label></p>
+                                <textarea th:if="${wolsung.raceAbilities != ''}" name="raceAbilities" cols="80" rows="3"
+                                          th:text="${wolsung.raceAbilities}" readonly></textarea>
+
+                                <p th:if="${wolsung.professionAbilities != ''}"><label>Zdolności (profesja):</label></p>
+                                <textarea th:if="${wolsung.professionAbilities != ''}" name="professionAbilities"
+                                          cols="80" rows="2" th:text="${wolsung.professionAbilities}"
+                                          readonly></textarea>
+
+                                <p th:if="${wolsung.weakness != ''}"><label>Słabości:</label></p>
+                                <textarea th:if="${wolsung.weakness != ''}" name="weakness" cols="80" rows="2"
+                                          th:text="${wolsung.weakness}" readonly></textarea>
+
+                                <p th:if="${wolsung.recoverToken != ''}"><label>Odzyskuje żeton raz na sesje za:</label>
+                                </p>
+                                <textarea th:if="${wolsung.recoverToken != ''}" name="recoverToken" cols="80" rows="2"
+                                          th:text="${wolsung.recoverToken}" readonly></textarea>
+
+                                <p th:if="${wolsung.trump != ''}"><label>Atuty:</label></p>
+                                <textarea th:if="${wolsung.trump != ''}" name="trump" cols="80" rows="3"
+                                          th:text="${wolsung.trump}" readonly></textarea>
+
+                                <p th:if="${wolsung.gadgets != ''}"><label>Gadżety:</label></p>
+                                <textarea th:if="${wolsung.gadgets != ''}" name="gadgets" cols="80" rows="3"
+                                          th:text="${wolsung.gadgets}" readonly></textarea>
+
+                                <p th:if="${wolsung.allies != ''}"><label>Sojusznicy:</label></p>
+                                <textarea th:if="${wolsung.allies != ''}" name="allies" cols="80" rows="3"
+                                          th:text="${wolsung.allies}" readonly></textarea>
+
+                                <p th:if="${wolsung.description != ''}"><label>Opis postaci:</label></p>
+                                <textarea th:if="${wolsung.description != ''}" name="description" cols="80" rows="3"
+                                          th:text="${wolsung.description}" readonly></textarea>
+
+                                <p th:if="${wolsung.scars != ''}"><label>Blizny:</label></p>
+                                <textarea th:if="${wolsung.scars != ''}" name="scars" cols="80" rows="2"
+                                          th:text="${wolsung.scars}" readonly></textarea>
+
+                                <p>
+                                <table>
+                                    <tr>
+                                        <td>Bogactwo:</td>
+                                        <td>Doświadczenie:</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input name="wealth" type="number" value="3" min="0" readonly></td>
+                                        <td><input name="xp" type="number" value="0" min="0" readonly></td>
+                                    </tr>
+
+
+                                </table>
+
+                                </p>
+
+
+                                <p><label th:if="${wolsung.achivmentA1 != ''}">Osiągnięcia 2k10:</label></p>
+
+                                <p><textarea th:text="${wolsung.achivmentA1}" th:if="${wolsung.achivmentA1 != ''}"
+                                             name="achivmentA1" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA2}" th:if="${wolsung.achivmentA2 != ''}"
+                                              name="achivmentA2" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA3}" th:if="${wolsung.achivmentA3 != ''}"
+                                              name="achivmentA3" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA4}" th:if="${wolsung.achivmentA4 != ''}"
+                                              name="achivmentA4" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA5}" th:if="${wolsung.achivmentA5 != ''}"
+                                              name="achivmentA5" cols="80" rows="1" readonly></textarea>
+
+                                    <textarea th:text="${wolsung.achivmentA6}" th:if="${wolsung.achivmentA6 != ''}"
+                                              name="achivmentA6" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA7}" th:if="${wolsung.achivmentA7 != ''}"
+                                              name="achivmentA7" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA8}" th:if="${wolsung.achivmentA8 != ''}"
+                                              name="achivmentA8" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA9}" th:if="${wolsung.achivmentA9 != ''}"
+                                              name="achivmentA9" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA10}" th:if="${wolsung.achivmentA10 != ''}"
+                                              name="achivmentA10" cols="80" rows="1" readonly></textarea>
+
+                                    <textarea th:text="${wolsung.achivmentA11}" th:if="${wolsung.achivmentA11 != ''}"
+                                              name="achivmentA11" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA12}" th:if="${wolsung.achivmentA12 != ''}"
+                                              name="achivmentA12" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA13}" th:if="${wolsung.achivmentA13 != ''}"
+                                              name="achivmentA13" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA14}" th:if="${wolsung.achivmentA14 != ''}"
+                                              name="achivmentA14" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentA15}" th:if="${wolsung.achivmentA15 != ''}"
+                                              name="achivmentA15" cols="80" rows="1" readonly></textarea></p>
+
+                                <p><label th:if="${wolsung.achivmentB1 != ''}">Osiągnięcia 3k10:</label></p>
+                                <p>
+                                    <textarea th:text="${wolsung.achivmentB1}" th:if="${wolsung.achivmentB1 != ''}"
+                                              name="achivmentB1" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB2}" th:if="${wolsung.achivmentB2 != ''}"
+                                              name="achivmentB2" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB3}" th:if="${wolsung.achivmentB3 != ''}"
+                                              name="achivmentB3" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB4}" th:if="${wolsung.achivmentB4 != ''}"
+                                              name="achivmentB4" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB5}" th:if="${wolsung.achivmentB5 != ''}"
+                                              name="achivmentB5" cols="80" rows="1" readonly></textarea>
+
+                                    <textarea th:text="${wolsung.achivmentB6}" th:if="${wolsung.achivmentB6 != ''}"
+                                              name="achivmentB6" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB7}" th:if="${wolsung.achivmentB7 != ''}"
+                                              name="achivmentB7" cols="80" rows="1"> readonly</textarea>
+                                    <textarea th:text="${wolsung.achivmentB8}" th:if="${wolsung.achivmentB8 != ''}"
+                                              name="achivmentB8" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB9}" th:if="${wolsung.achivmentB9 != ''}"
+                                              name="achivmentB9" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB10}" th:if="${wolsung.achivmentB10 != ''}"
+                                              name="achivmentB10" cols="80" rows="1" readonly></textarea>
+
+                                    <textarea th:text="${wolsung.achivmentB11}" th:if="${wolsung.achivmentB11 != ''}"
+                                              name="achivmentB11" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB12}" th:if="${wolsung.achivmentB12 != ''}"
+                                              name="achivmentB12" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB13}" th:if="${wolsung.achivmentB13 != ''}"
+                                              name="achivmentB13" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB14}" th:if="${wolsung.achivmentB14 != ''}"
+                                              name="achivmentB14" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentB15}" th:if="${wolsung.achivmentB15 != ''}"
+                                              name="achivmentB15" cols="80" rows="1" readonly></textarea></p>
+
+                                <p><label th:if="${wolsung.achivmentC1 != ''}">Osiągnięcia 4k10:</label></p>
+                                <p>
+
+                                    <textarea th:text="${wolsung.achivmentC1}" th:if="${wolsung.achivmentC1 != ''}"
+                                              name="achivmentC1" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC2}" th:if="${wolsung.achivmentC2 != ''}"
+                                              name="achivmentC2" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC3}" th:if="${wolsung.achivmentC3 != ''}"
+                                              name="achivmentC3" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC4}" th:if="${wolsung.achivmentC4 != ''}"
+                                              name="achivmentC4" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC5}" th:if="${wolsung.achivmentC5 != ''}"
+                                              name="achivmentC5" cols="80" rows="1" readonly></textarea>
+
+                                    <textarea th:text="${wolsung.achivmentC6}" th:if="${wolsung.achivmentC6 != ''}"
+                                              name="achivmentC6" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC7}" th:if="${wolsung.achivmentC7 != ''}"
+                                              name="achivmentC7" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC8}" th:if="${wolsung.achivmentC8 != ''}"
+                                              name="achivmentC8" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC9}" th:if="${wolsung.achivmentC9 != ''}"
+                                              name="achivmentC9" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC10}" th:if="${wolsung.achivmentC10 != ''}"
+                                              name="achivmentC10" cols="80" rows="1" readonly></textarea>
+
+                                    <textarea th:text="${wolsung.achivmentC11}" th:if="${wolsung.achivmentC11 != ''}"
+                                              name="achivmentC11" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC12}" th:if="${wolsung.achivmentC12 != ''}"
+                                              name="achivmentC12" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC13}" th:if="${wolsung.achivmentC13 != ''}"
+                                              name="achivmentC13" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC14}" th:if="${wolsung.achivmentC14 != ''}"
+                                              name="achivmentC14" cols="80" rows="1" readonly></textarea>
+                                    <textarea th:text="${wolsung.achivmentC15}" th:if="${wolsung.achivmentC15 != ''}"
+                                              name="achivmentC15" cols="80" rows="1" readonly></textarea></p>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <th:block th:replace="wolsung/menubottom :: menubot">
+
+
+            </div>
+            <!-- Blog Post (Right Sidebar) End -->
+
+        </div>
+    </div>
+</div>
+
+
+<a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugin.js"></script>
+
+
+<script type="text/javascript" src="js/scripts.js"></script>
+
+
+</body>
+</html>
